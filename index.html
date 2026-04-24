@@ -3,39 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>专属于你｜限定浪漫</title>
+    <title>ฅ喵喵星球 · 只属于你ฅ</title>
     <style>
-        *{margin:0;padding:0;}
+        *{margin:0;padding:0;box-sizing:border-box;}
         body{
-            min-height: 100vh;
-            background: #fff5f8;
-            text-align: center;
-            font-family: "微软雅黑",sans-serif;
-            color: #444;
-            padding-top: 120px;
+            width:100vw;
+            min-height:100vh;
+            background:#ffe6f0;
+            text-align:center;
+            font-family:"微软雅黑",sans-serif;
+            overflow-x:hidden;
+            position:relative;
         }
+
+        .hearts{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            pointer-events:none;
+            z-index:-1;
+            background:url('https://i.imgur.com/0fPuHJL.gif') repeat;
+            opacity:0.85;
+        }
+
+        .container{
+            max-width:700px;
+            margin:0 auto;
+            padding:60px 20px;
+            position:relative;
+            z-index:10;
+        }
+
         h1{
-            color: #e85a7a;
-            font-size: 32px;
-            margin-bottom: 30px;
+            font-size:34px;
+            color:#e64384;
+            margin-bottom:10px;
         }
-        p{
-            font-size: 18px;
-            line-height: 2.2;
+
+        .typewriter{
+            font-size:24px;
+            color:#d6336c;
+            margin:25px 0;
+            white-space:nowrap;
+            overflow:hidden;
+            border-right:3px solid #d6336c;
+            width:0;
+            animation: typing 1.5s steps(10) forwards, blink 0.7s infinite;
         }
-        .heart{
-            color: #e85a7a;
-            font-size: 40px;
-            margin: 40px 0;
+        @keyframes typing{to{width:100%;}}
+        @keyframes blink{50%{border-color:transparent;}}
+
+        .slideshow{
+            width:100%;
+            border-radius:12px;
+            overflow:hidden;
+            box-shadow:0 0 25px rgba(230,67,132,0.25);
+            margin:30px 0;
         }
+        .slides{
+            display:flex;
+            transition:transform 0.9s ease;
+        }
+        .slide{
+            min-width:100%;
+        }
+        .slide img{
+            width:100%;
+            display:block;
+            border-radius:12px;
+        }
+
+        audio{display:none;}
     </style>
 </head>
+
 <body>
-    <h1>以域名为名，赠你专属温柔</h1>
-    <div class="heart">❤</div>
-    <p>这世上有千千万万个域名</p>
-    <p>但这一个，只属于你</p>
-    <p>山河万里，偏爱是你</p>
-    <p>岁岁年年，皆为你</p>
+    <div class="hearts"></div>
+    <div class="container">
+        <h1>喵呜～欢迎来到我的小星球</h1>
+        <div class="typewriter">(◕ω◕✿) 咪咪喵喵咪咪喵！(●′ω`●)ฅ </div>
+
+        <div class="slideshow">
+            <div class="slides">
+                <div class="slide"><img src="01.jpg"></div>
+                <div class="slide"><img src="02.jpg"></div>
+                <div class="slide"><img src="03.jpg"></div>
+                <div class="slide"><img src="04.jpg"></div>
+                <div class="slide"><img src="05.jpg"></div>
+                <div class="slide"><img src="06.jpg"></div>
+                <div class="slide"><img src="07.jpg"></div>
+                <div class="slide"><img src="08.jpg"></div>
+                <div class="slide"><img src="09.jpg"></div>
+                <div class="slide"><img src="10.jpg"></div>
+                <div class="slide"><img src="11.jpg"></div>
+                <div class="slide"><img src="12.jpg"></div>
+                <div class="slide"><img src="13.jpg"></div>
+            </div>
+        </div>
+    </div>
+
+    <audio autoplay loop>
+        <source src="https://music.163.com/song/media/outer/url?id=3332136612.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        let s = document.querySelector('.slides');
+        let i = 0;
+        setInterval(()=>{
+            i=(i+1)%13;
+            s.style.transform=`translateX(-${i*100}%)`;
+        }, 1300); // 更快：1.3秒切换一张
+    </script>
 </body>
 </html>
